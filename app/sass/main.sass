@@ -12,6 +12,7 @@
 body
 	font-size: 16px
 	min-width: 320px
+	min-height: 2000px
 	position: relative
 	line-height: 1.65
 	font-family: $default-font
@@ -38,6 +39,64 @@ body
 b, strong
 	font-weight: bold
 
+ul, li
+	padding: 0
+	margin: 0
+	list-style-type: none
+a
 
+header
+	background: url($img-path + 'header_bg.jpg') no-repeat
+	background-size: cover
+	min-height: 100vh
+	position: relative
+	&:after
+		content: ''
+		position: absolute
+		z-index: 1
+		background: rgba(#000, .7)
+		left: 0
+		top: 0
+		width: 100%
+		height: 100%
+
+.top_nav
+	position: fixed
+	z-index: 2
+	height: 70px
+	width: 100%
+	background-color: rgba(#000, .8)
+
+.logo
+	svg
+		position: relative
+		top: -8px
+		path
+			transition: .3s
+		&:hover
+			path
+				fill: rgb(255, 0, 54)
+.navigation
+	&_list
+		height: 70px
+		text-align: right
+	&_item
+		display: inline-block
+		margin-left: 30px
+		line-height: 65px
+		&-active
+			border-top: 2px solid $accent
+			border-bottom: 2px solid $accent
+			a
+				color: #fff
+	&_link
+		color: $nav-color
+		text-transform: uppercase
+		transition: .3s
+		font-family: raleway-regular
+		&:hover
+			text-decoration: none
+			color: #fff
+		
 
 @import "media" // Always at the end
