@@ -1,6 +1,7 @@
 @import "vars"
 @import "fonts"
 @import "libs"
+@import "_mixins/_title"
 
 ::placeholder
 	color: #666
@@ -67,7 +68,7 @@ header
 
 .top_line
 	position: fixed
-	z-index: 3
+	z-index: 4
 	height: 70px
 	width: 100%
 	background-color: rgba(#000, .8)
@@ -163,4 +164,131 @@ header
 	.fa-chevron-left
 		top: 30%
 		left: -30px
+
+//section_1
+.section_1
+	color: $text-white-sect
+	@extend %white_title
+
+.accordeon
+	margin-top: 40px
+	&_item
+		margin-bottom: 5px
+	&_title
+		font-family: raleway-medium
+		font-size: 20px
+		cursor: pointer
+		transition: .2s
+		background-color: #f7f7f7
+		h3
+			border-left: 1px solid #f0f0f0
+			display: inline-block
+			margin-left: 20px
+			padding-left: 20px
+	&_icon
+		position: relative
+		top: 2px
+		display: inline-block
+		height: 20px
+		width: 20px
+		border: 2px solid $text-white-sect
+		border-radius: 50%
+		transition: .2s
+		margin-left: 20px
+		&:after, &:before
+			content: ''
+			position: absolute
+			width: 12px
+			height: 2px
+			background-color: $text-white-sect
+			top: calc(50% - 1px)
+			left: 2px
+			transition: .2s
+		&:before
+			transform: rotate(90deg)
+			transition: .2s
+	&_text
+		font-family: lato-regular
+		font-size: 14px
+		padding: 16px
+	&_title-active
+		color: $accent
+		.accordeon_icon
+			border: 2px solid $accent
+			&:after, &:before
+				background-color: $accent
+			&:before
+				transform: rotate(0deg)
+	.scnd
+		display: none
+	.thrd
+		display: none
+
+.people
+	display: block
+	img
+		display: block
+		max-width: 100%
+		margin: 100px auto
+.line
+	position: relative
+	margin: 20px auto 100px	
+	height: 1px
+	background-color: #000
+	max-width: 500px
+	img
+		position: absolute
+		left: 0
+		right: 0
+		top: 0
+		bottom: 0
+		margin: auto
+.card
+	text-align: center
+	transition: .3s
+	padding: 10px 5px
+	margin-bottom: 20px
+	.card_hexagon
+			svg
+				path
+					transition: .3s
+	&:hover
+		box-shadow: 0 0 4px rgba(0,0,0, .5)
+		path
+			fill: $accent
+			stroke: darken($accent, 5%)
+		i
+			color: #000		
+.card_hexagon
+	margin: 0 auto
+	width: 80px
+	height: 76px
+	position: relative
+	i
+		transition: color .3s ease .2s
+		font-size: 26px
+		position: absolute
+		top: calc(50% - 13px)
+		left: calc(50% - 13px)
+	.fa-mobile-alt
+		font-size: 25px
+		top: calc(50% - 14px)
+		left: calc(50% - 8px)
+	.fa-gripfire
+		font-size: 28px
+		top: calc(50% - 14px)
+		left: calc(50% - 10px)
+.card_content
+	h3
+		text-transform: uppercase
+		margin-top: 27px
+		margin-bottom: 35px
+		font-family: raleway-medium
+		font-size: 20px
+	p
+		font-family: lato-regular
+		font-size: 16px
+		line-height: 20px
+		color: $text-white-sect
+
 @import "media" // Always at the end
